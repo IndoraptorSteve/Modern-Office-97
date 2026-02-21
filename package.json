@@ -1,0 +1,57 @@
+{
+  "name": "microsoft-office-97",
+  "version": "1.0.0",
+  "description": "Microsoft Office 97 Recreation",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "word": "electron . --word",
+    "excel": "electron . --excel",
+    "powerpoint": "electron . --powerpoint",
+    "access": "electron . --access",
+    "outlook": "electron . --outlook",
+    "build": "LANG=C.utf8 electron-builder --win nsis",
+    "build-linux": "electron-builder --linux"
+  },
+  "dependencies": {
+    "mammoth": "^1.6.0",
+    "docx": "^8.2.0",
+    "xlsx": "^0.18.5",
+    "pptxgenjs": "^3.12.0",
+    "sql.js": "^1.10.2"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "build": {
+    "appId": "com.microsoft.office97",
+    "productName": "Microsoft Office 97",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icons/office97.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "icons/office97.ico",
+      "installerHeaderIcon": "icons/office97.ico",
+      "installerSidebar": "installer/sidebar.bmp",
+      "license": "installer/eula.txt",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Microsoft Office 97",
+      "include": "installer/installer.nsh",
+      "allowElevation": true,
+      "differentialPackage": true
+    },
+    "files": [
+      "**/*",
+      "!dist/**",
+      "!node_modules/.cache/**"
+    ]
+  }
+}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Microsoft Office 97</title>
+  <link rel="stylesheet" href="shared/win95-ui.css">
+  <style>
+    * {
+      -webkit-font-smoothing: none !important;
+      -moz-osx-font-smoothing: unset !important;
+      text-rendering: optimizeSpeed !important;
+      font-smooth: never !important;
+    }
+    html, body { height: 100%; margin: 0; padding: 0; }
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      background: #c0c0c0;
+      overflow: hidden;
+    }
+
+    /* Office Shortcut Bar style */
+    .shortcut-bar {
+      background: linear-gradient(to bottom, #d4d0c8, #c0c0c0);
+      border-bottom: 2px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+      width: 100%;
+      padding: 4px 8px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .shortcut-bar-title {
+      font-size: 11px;
+      font-weight: bold;
+      color: #000080;
+      font-family: Tahoma, Arial, sans-serif;
+      padding: 0 8px 0 4px;
+      white-space: nowrap;
+      border-right: 1px solid #808080;
+      margin-right: 6px;
+    }
+
+    .app-buttons {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+    }
+
+    .shortcut-btn {
+      background: #c0c0c0;
+      border: 1px solid transparent;
+      padding: 3px 6px;
+      cursor: pointer;
+      text-align: center;
+      font-family: Tahoma, Arial, sans-serif;
+      font-size: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      min-width: 56px;
+    }
+
+    .shortcut-btn:hover {
+      border: 1px solid;
+      border-color: #ffffff #808080 #808080 #ffffff;
+    }
+
+    .shortcut-btn:active {
+      border: 1px solid;
+      border-color: #808080 #ffffff #ffffff #808080;
+    }
+
+    .shortcut-btn img {
+      width: 32px;
+      height: 32px;
+      display: block;
+      image-rendering: pixelated;
+    }
+
+    .shortcut-btn span {
+      font-size: 10px;
+      color: #000;
+      white-space: nowrap;
+    }
+
+    .bar-separator {
+      width: 2px;
+      height: 36px;
+      border-left: 1px solid #808080;
+      border-right: 1px solid #ffffff;
+      margin: 0 4px;
+    }
+
+    /* Bottom area */
+    .bottom-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .office-logo {
+      text-align: center;
+    }
+
+    .office-logo .title {
+      font-size: 22px;
+      font-family: 'Times New Roman', Georgia, serif;
+      font-style: italic;
+      color: #000080;
+      text-shadow: 1px 1px 0 #808080;
+    }
+
+    .office-logo .subtitle {
+      font-size: 12px;
+      font-family: Tahoma, Arial, sans-serif;
+      color: #404040;
+      margin-top: 4px;
+    }
+
+    .version-text {
+      font-size: 10px;
+      color: #808080;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    .exit-row {
+      display: flex;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Office 97 Shortcut Bar -->
+<div class="shortcut-bar">
+  <div class="shortcut-bar-title">Office</div>
+  <div class="app-buttons">
+    <div class="shortcut-btn" onclick="launchApp('word')">
+      <img src="icons/word-original.png" alt="Word">
+      <span>Word</span>
+    </div>
+    <div class="shortcut-btn" onclick="launchApp('excel')">
+      <img src="icons/excel-original.png" alt="Excel">
+      <span>Excel</span>
+    </div>
+    <div class="shortcut-btn" onclick="launchApp('powerpoint')">
+      <img src="icons/powerpoint-original.png" alt="PowerPoint">
+      <span>PowerPoint</span>
+    </div>
+    <div class="bar-separator"></div>
+    <div class="shortcut-btn" onclick="launchApp('access')">
+      <img src="icons/access-original.png" alt="Access">
+      <span>Access</span>
+    </div>
+    <div class="shortcut-btn" onclick="launchApp('outlook')">
+      <img src="icons/outlook-original.png" alt="Outlook">
+      <span>Outlook</span>
+    </div>
+  </div>
+</div>
+
+<!-- Center area -->
+<div class="bottom-area">
+  <div class="office-logo">
+    <div class="title">Microsoft Office 97</div>
+    <div class="subtitle">Professional Edition</div>
+  </div>
+
+  <div class="exit-row">
+    <button class="win95-btn" onclick="window.close()">Exit</button>
+  </div>
+
+  <div class="version-text">Version 8.0 (97) - Recreation</div>
+</div>
+
+<script>
+  function launchApp(name) {
+    if (window.launcherAPI) {
+      window.launcherAPI.launchApp(name);
+    }
+  }
+</script>
+
+<script src="shared/win95-ui.js"></script>
+</body>
+</html>
